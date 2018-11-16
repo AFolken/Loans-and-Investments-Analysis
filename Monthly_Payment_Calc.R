@@ -7,7 +7,7 @@ Monthly_Payment_Calc = function(L,n,i){
   #n #months (30 years = 360)
   #i interest rate annual
   c = i/12 #interest rate monthly
-  L = L - L*.05
+  L = L - L*.05 #L*.05 is the down payment of 5%
   Payment = L*(c*((1 + c)**n))/((1 + c)**n - 1)
   
   Total_Paid = round(Payment*n,digits = 2)

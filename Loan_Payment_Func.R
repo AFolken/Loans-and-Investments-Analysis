@@ -6,7 +6,6 @@ StudentLoan_Payment_Func = function(interest,Loan){
   
   d <- data.frame(Payment = numeric(),Total_Interest = numeric(),Total_Spent = numeric(),Total_Months = numeric())
   
-  M = 240 #max number of months
   r = interest #loan interest rate
   n = 12  #how interest rate is divided
   ymax = ceiling((r/n)*Loan) #this was needed to avoid a negative value in the log when calculating tp

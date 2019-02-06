@@ -8,7 +8,7 @@ StudentLoan_Payment_Func = function(interest,Loan){
   
   r = interest                #loan interest rate
   n = 12                      #how interest rate is divided
-  ymax = ceiling((r/n)*Loan)  #this was needed to avoid a negative value in the log when calculating total payments (essentially, payments lower than this amount will result in infinite time and payments)
+  ymax = ceiling((r/n)*Loan)  #this was needed to avoid a negative value in the log when calculating total payments (essentially, payments lower than this amount will result in infinite payments because you aren't paying more than the interest)
   
   for(i in seq(ymax, 2000,1)){  #loops through a spectrum of payment amounts starting at ymax (see above def.) through 2000 
     

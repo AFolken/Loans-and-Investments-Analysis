@@ -47,7 +47,14 @@ ui <- fluidPage(
                   min = 0, max = 1, step = .001),
      numericInput('loan', 'Loan Amount ($)', 30000,
                   min = 1, step = 500),
-     submitButton("Submit")
+     submitButton("Submit"),
+     "Enter the interest rate and loan amount above. The two plots and table on the right will show you how much it will cost and how long it will take to pay off the loan depending on how much you pay monthly.
+     
+       The total interest is the amount you are paying in addition to paying back the loan.
+     
+       The total months is the total time it will take to pay off the loan.
+     
+       The plots are interactive. Zoom in/out and hover to analyze the data."
    ),
       
       # Show a plot of the generated distribution

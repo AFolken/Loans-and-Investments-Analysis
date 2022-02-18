@@ -18,7 +18,7 @@ StudentLoan_Payment_Func = function(interest,Loan){
   n = 12                      #how interest rate is divided
   ymax = ceiling((r/n)*Loan)  #this was needed to avoid a negative value in the log when calculating total payments (essentially, payments lower than this amount will result an infinite number of payments because you aren't paying more than the interest)
   
-  for(i in seq(ymax, 2000,1)){  #loops through a spectrum of payment amounts starting at ymax (see above def.) through 2000 
+  for(i in seq(ymax, 5000,1)){  #loops through a spectrum of payment amounts starting at ymax (see above def.) through 2000 
     
     tp <- (-log(1-((r/n)*Loan/i)))/(log(1+(r/n)))             # calculates total payments (le googel)
     
@@ -43,9 +43,9 @@ ui <- fluidPage(
    
    # Sidebar with a slider input for number of bins 
    sidebarPanel(
-     numericInput('interest', 'Interest Rate (0.08 = 8%)', 0.08,
+     numericInput('interest', 'Interest Rate (0.037 = 3.7%)', 0.037,
                   min = 0, max = 1, step = .001),
-     numericInput('loan', 'Loan Amount ($)', 30000,
+     numericInput('loan', 'Loan Amount ($)', 300000,
                   min = 1, step = 500),
      submitButton("Submit"),
      "Enter the interest rate and loan amount above. The two plots and table on the right will show you how much it will cost and how long it will take to pay off the loan depending on how much you pay monthly.
@@ -81,9 +81,9 @@ server <- function(input, output) {
       layout(
         hovermode = 'compare',
         title = "<br>Total Interest by Payment",
-        xaxis = list(range = c(0,2050),
+        xaxis = list(range = c(0,5050),
                      title = 'Payment'),      
-        yaxis = list(range = c(0,50000),
+        yaxis = list(range = c(0,1000000),
                      title = 'Total Interest')      #total interest range set to $50000 (if you're planning on spending more you need to reanalyze your life choices)
         
       )
